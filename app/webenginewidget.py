@@ -17,7 +17,6 @@ class WebEngineWidget(QWidget):
         self.flight_path = flight_path  # Set the flight path list
         
     def update_map(self, image_name):
-        print(image_name)
         m = folium.Map()
 
         max_lat, max_lon = -90, -180
