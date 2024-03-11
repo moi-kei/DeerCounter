@@ -36,7 +36,8 @@ class WebEngineWidget(QWidget):
             marker_color = 'red' if item[0] == image_name else 'blue'
 
             popup = folium.Popup(item[0])
-            folium.Marker([lat, lon], popup=popup, icon=folium.Icon(color=marker_color)).add_to(m)
+            #folium.Marker([lat, lon], popup=popup, icon=folium.Icon(color=marker_color, icon_size=(20,20))).add_to(m)
+            folium.CircleMarker(location=[lat, lon], radius=5, popup=popup, color=marker_color, fill=True, fill_opacity=1).add_to(m)
 
             # Add coordinates for the polyline
             polyline_coords.append([lat, lon])

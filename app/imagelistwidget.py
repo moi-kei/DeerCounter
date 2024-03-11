@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QListWidget, QWidget, QVBoxLayout, QFileDialog
 from PyQt6.QtCore import pyqtSignal
 import os
+import shutil
 from gps_extractor import get_flight_path
 
 class ImageListWidget(QWidget):
@@ -35,6 +36,7 @@ class ImageListWidget(QWidget):
         if folder_path:
             self.folder_selected.emit(folder_path)
             self.folder_path = folder_path
+            shutil.rmtree("predicted_images/predict")
             flight_path = get_flight_path(folder_path)
             self.flight_path_changed.emit(flight_path)  # Emit the flight path
             self.load_images(folder_path)
