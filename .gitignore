@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # images
-.jpg
+predicted_images/
