@@ -6,15 +6,13 @@ class WebEngineWidget(QWidget):
     def __init__(self, flight_path=None, parent=None):
         super().__init__(parent)
         
-        self.flight_path = flight_path
-        
-        self.web_engine_view = QWebEngineView()
-        
+        self.flight_path = flight_path        
+        self.web_engine_view = QWebEngineView()      
         layout = QVBoxLayout(self)
         layout.addWidget(self.web_engine_view)
 
     def set_flight_path(self, flight_path):
-        self.flight_path = flight_path  # Set the flight path list
+        self.flight_path = flight_path
         
     def update_map(self, image_name):
         m = folium.Map()
@@ -36,8 +34,10 @@ class WebEngineWidget(QWidget):
             marker_color = 'red' if item[0] == image_name else 'blue'
 
             popup = folium.Popup(item[0])
-            #folium.Marker([lat, lon], popup=popup, icon=folium.Icon(color=marker_color, icon_size=(20,20))).add_to(m)
-            folium.CircleMarker(location=[lat, lon], radius=5, popup=popup, color=marker_color, fill=True, fill_opacity=1).add_to(m)
+            if item[0]==image_name:
+                folium.Marker([lat, lon], popup=popup, icon=folium.Icon(color=marker_color)).add_to(m)
+            else:
+                folium.CircleMarker(location=[lat, lon], radius=5, popup=popup, color=marker_color, fill=True, fill_opacity=1).add_to(m)
 
             # Add coordinates for the polyline
             polyline_coords.append([lat, lon])

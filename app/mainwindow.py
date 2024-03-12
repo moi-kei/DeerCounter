@@ -35,14 +35,14 @@ class MainWindow(QMainWindow):
         # Add ImageListWidget for displaying list of images
         self.image_list_widget = ImageListWidget(self)
         self.main_layout.addWidget(self.image_list_widget)
-        self.image_list_widget.setMaximumWidth(200)  # Set maximum width here
+        self.image_list_widget.setMaximumWidth(200)
 
         self.select_folder_btn.clicked.connect(self.image_list_widget.select_folder)
         self.image_list_widget.image_paths_changed.connect(self.image_viewer.set_image_paths)
         self.image_viewer.image_changed.connect(self.web_engine_widget.update_map)
         self.image_list_widget.flight_path_changed.connect(self.web_engine_widget.set_flight_path)
         self.image_list_widget.image_clicked.connect(self.image_viewer.show_image)
-        self.image_list_widget.image_clicked.connect(self.update_image_index)  # Connect to update index
+        self.image_list_widget.image_clicked.connect(self.update_image_index)
 
     def update_image_index(self, image_path, index):
         self.image_viewer.current_index = index
