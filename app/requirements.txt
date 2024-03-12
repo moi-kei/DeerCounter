@@ -1,0 +1,6 @@
+ExifRead==3.0.0
+folium==0.16.0
+PyQt6==6.6.1
+PyQt6-WebEngine==6.6.0
+ultralytics==8.1.27
+dill==0.3.8
