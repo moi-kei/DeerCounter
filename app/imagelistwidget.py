@@ -7,8 +7,8 @@ from gps_extractor import get_flight_path
 class ImageListWidget(QWidget):
     folder_selected = pyqtSignal(str)
     image_paths_changed = pyqtSignal(list)
-    image_clicked = pyqtSignal(str, int)  # Modified to include the index of the clicked image
-    flight_path_changed = pyqtSignal(list)  # Signal to emit the flight path
+    image_clicked = pyqtSignal(str, int) 
+    flight_path_changed = pyqtSignal(list)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -36,9 +36,12 @@ class ImageListWidget(QWidget):
         if folder_path:
             self.folder_selected.emit(folder_path)
             self.folder_path = folder_path
-            shutil.rmtree("predicted_images/predict")
+            try:
+                shutil.rmtree("predicted_images/predict")
+            except:
+                None
             flight_path = get_flight_path(folder_path)
-            self.flight_path_changed.emit(flight_path)  # Emit the flight path
+            self.flight_path_changed.emit(flight_path)
             self.load_images(folder_path)
 
     def load_images(self, folder_path):
