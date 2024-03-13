@@ -37,7 +37,7 @@ class ImageListWidget(QWidget):
             self.folder_selected.emit(folder_path)
             self.folder_path = folder_path
             try:
-                shutil.rmtree("predicted_images/predict")
+                shutil.rmtree("predict")
             except:
                 None
             flight_path = get_flight_path(folder_path)
