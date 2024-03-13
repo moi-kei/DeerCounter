@@ -2,7 +2,7 @@ import os
 from ultralytics import YOLO
 
 def predict_image(image_path):
-    model = YOLO('models/yolov8m.pt')
+    model = YOLO('models/yolov8m_250_deer.pt')
     
     # Extract image name from image path
     image_name = os.path.basename(image_path)
