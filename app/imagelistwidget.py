@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import QListWidget, QWidget, QVBoxLayout, QFileDialog
 from PyQt6.QtCore import pyqtSignal
 import os
 import shutil
-from gps_extractor import get_flight_path
+from image_analyser import get_flight_path
 
 class ImageListWidget(QWidget):
     folder_selected = pyqtSignal(str)
