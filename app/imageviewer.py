@@ -1,7 +1,6 @@
 from PyQt6.QtWidgets import QLabel, QPushButton, QHBoxLayout, QVBoxLayout, QWidget, QRadioButton
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QPixmap
-from predict_image import predict_image
 import os
 
 class ImageViewer(QWidget):
@@ -43,11 +42,11 @@ class ImageViewer(QWidget):
 
     def show_image(self, image_path):
         if self.identify_deer_radio.isChecked():
-            predicted_image = predict_image(image_path)  # Print the image path using the normal path
+            image_name = os.path.basename(image_path)
+            predicted_image = 'predict/' + image_name
             pixmap = QPixmap(predicted_image)
             self.image_label.setPixmap(pixmap)
-            self.image_label.adjustSize()
-            image_name = os.path.basename(predicted_image)
+            self.image_label.adjustSize()           
             self.current_image = image_name  # Update the currently displayed image
             self.image_name_label.setText(image_name)  # Update the image name label
             self.image_changed.emit(image_name)
