@@ -36,7 +36,7 @@ class WebEngineWidget(QWidget):
         # Create a Folium map
         m = folium.Map()
 
-        #initialize max and min coordinates to resize the map
+        # initialize max and min coordinates to resize the map
         max_lat, max_lon = -90, -180
         min_lat, min_lon = 90, 180
 
@@ -44,9 +44,9 @@ class WebEngineWidget(QWidget):
         polyline_coords = []
 
         for item in self.flight_path:
-            #extract data from flight path
+            # extract data from flight path
             lat, lon = item[1], item[2]
-            #set max  and min coordinates
+            # set max  and min coordinates
             max_lat = max(max_lat, lat)
             max_lon = max(max_lon, lon)
             min_lat = min(min_lat, lat)
@@ -56,14 +56,17 @@ class WebEngineWidget(QWidget):
             # Create a popup for each marker
             popup = folium.Popup(f"{item[0]}<br>Deer detected: {detected_objects}")
 
+            #if the image is currently shown use a unique marker
             if item[0] == image_name:
                 # Highlight the image of interest with a red marker
                 folium.Marker([lat, lon], popup=popup, icon=folium.Icon(color='red')).add_to(m)
-            
+
+            # if there are objeects detected in the image use a different colour
             elif detected_objects > 0:
                 # Markers for locations with detected objects
                 folium.CircleMarker(location=[lat, lon], radius=7, popup=popup, color='orange', fill=True, fill_opacity=1).add_to(m)
             
+            # else use the defaultmarker
             else:
                 # Markers for locations without detected objects
                 folium.CircleMarker(location=[lat, lon], radius=5, popup=popup, color='blue', fill=True, fill_opacity=1).add_to(m)
