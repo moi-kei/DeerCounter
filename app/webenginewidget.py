@@ -84,9 +84,3 @@ class WebEngineWidget(QWidget):
         # Set HTML content with width and height of 100%
         html_content = f'<html><head><style>html, body, #map {{ width: 100%; height: 100%; margin: 0; padding: 0; }}</style></head><body><div id="map">{map_html}</div></body></html>'
         self.web_engine_view.setHtml(html_content)
-            
-
-
-
-
-    

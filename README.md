@@ -46,6 +46,8 @@ Folder Structure
 - `models/`: Directory containing pre-trained AI models.
 - `README.md`: This README file.
 
+- `deercounter-yolov8-all_flights_nokeys`: contains an example of the jupyter notebook used to train the model with API keys removed
+
 Requirements
 
 - Python 3.x
