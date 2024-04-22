@@ -1,6 +1,6 @@
 #DeerCounter
 
-DeerCounter is an application designed to analyze images captured during aerial surveys for counting deer populations. The application allows users to select a folder containing images, view the images, identify deer using AI, and visualize the flight path of the survey on a map.
+DeerCounter is an application designed to analyze images captured during aerial surveys for monitoring deer populations. The application allows users to select a folder containing images, view the images, identify deer using AI, and visualize the flight path of the survey on a map.
 
 Features
 
@@ -13,7 +13,7 @@ Installation
 
 1. Clone the repository:
 
-    git clone https://github.com/yourusername/DeerCounter.git
+    git clone https://github.com/moi-kei/DeerCounter.git
 
 2. Install dependencies:
 
@@ -26,6 +26,7 @@ Usage
     python main.py
 
 2. Select a folder containing images by clicking the "Select Folder" button.
+    - Depending on the number of images this may take several minutes to analyse the full folder
 3. View images and use the radio button to enable/disable AI identification.
 4. Click on an image in the image list  on the size to view it or use the next/prev buttons tpoo cycle through images.
 5. The flight path will be visualized on the map. Images containing detected deer are highlighted in a different colour.
@@ -36,9 +37,10 @@ Folder Structure
 
 - `app.py`: Main application file.
 - `image_analyser.py`: Module for analyzing images and extracting flight path data.
-- `predict_image.py`: Module for predicting bounding boxes of objects in images using AI.
-- `imageviewer.py`: Module for displaying images.
 - `imagelistwidget.py`: Module for displaying a list of images and selecting a folder.
+- `imageviewer.py`: Module for displaying images.
+- `MainWindow.py` : The mainwindow for the application which houses the widgets
+- `predict_image.py`: Module for predicting bounding boxes of objects in images using AI.
 - `webenginewidget.py`: Module for displaying a map using WebEngineView.
 - `models/`: Directory containing pre-trained AI models.
 - `README.md`: This README file.
@@ -53,4 +55,4 @@ Requirements
 
 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU License - see the LICENSE file for details.
