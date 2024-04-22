@@ -35,6 +35,7 @@ Usage
 
 Folder Structure
 
+- `app` contains all files for operation of the application
 - `app.py`: Main application file.
 - `image_analyser.py`: Module for analyzing images and extracting flight path data.
 - `imagelistwidget.py`: Module for displaying a list of images and selecting a folder.
