@@ -37,7 +37,7 @@ def get_flight_path(folder_path):
         # Write the header row
         csv_writer.writerow(['Filename', 'Detected deer'])
         
-        # Write each imaage name and neumber of deer in the flight path to the CSV file
+        # Write each image name and number of deer in the flight path to the CSV file
         for item in flight_path:
             csv_writer.writerow([item[0], item[3]])
     return flight_path
