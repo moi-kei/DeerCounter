@@ -35,11 +35,11 @@ def get_flight_path(folder_path):
         csv_writer = csv.writer(csvfile)
         
         # Write the header row
-        csv_writer.writerow(['Filename', 'Latitude', 'Longitude', 'Detected deer'])
+        csv_writer.writerow(['Filename', 'Detected deer'])
         
-        # Write each item in the flight path to the CSV file
+        # Write each imaage name and neumber of deer in the flight path to the CSV file
         for item in flight_path:
-            csv_writer.writerow([item[0], item[1], item[2], item[3]])
+            csv_writer.writerow([item[0], item[3]])
     return flight_path
 
 def convert_invalid_coordinates(lat, lon):
