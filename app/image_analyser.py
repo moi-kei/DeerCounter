@@ -17,13 +17,17 @@ def get_flight_path(folder_path):
     for filename in os.listdir(folder_path):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(folder_path, filename)
+            # get GPS data from image
             lat, lon = extract_gps(image_path)
+            # analyse th eimage with AI
             detected_objects = predict_image(image_path)
+            # calculate picelcoords of detected objects
             midpoints = []
             for item in detected_objects:
                 x_value = (item[0] + item[2]) / 2
                 y_value = (item[1] + item[3]) / 2
                 midpoints.append((x_value, y_value))
+            # add data to list
             if lat is not None and lon is not None:
                 flight_path.append((filename, lat, lon, len(midpoints)))
                 print("filename: ", filename, " Latitude: ", lat, " Longitude: ", lon, "\ndetected objects: ", midpoints)
